@@ -1,6 +1,7 @@
 {
   "name": "Broadcaster",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "main": "src/Broadcast.js",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-es2015-rollup": "^3.0.0",
@@ -11,5 +12,8 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-root-import": "^0.2.2",
     "rollup-plugin-serve": "^0.4.2"
+  },
+  "dependencies": {
+    "es6-promise": "^4.1.1"
   }
 }

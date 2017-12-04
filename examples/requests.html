@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Broadcast.js Example</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="../dist/broadcast.js"></script>
+        <script type="text/javascript">
+            var manager = new Broadcast;
+
+            var dispatch1 = manager.dispatch('app');
+
+            dispatch1.reply('some:request', function(resolve, reject, arg1, arg2) {
+                resolve('reply 1');
+            });
+
+            dispatch1.reply('some:request', function(resolve, reject, arg1, arg2) {
+                resolve('reply 2');
+            });
+
+            dispatch1.request('some:request', 1, 2).then(function(response) {
+                console.log('asd', response);
+            }, function(error) {
+                console.log('error', error);
+            });
+
+
+            /*
+            .then(function(response) {
+                console.log('some:request', response);
+            });
+            */
+
+        </script>
+    </body>
+</html>

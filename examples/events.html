@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Broadcast.js Example</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="../dist/broadcast.js"></script>
+        <script type="text/javascript">
+            var manager = new Broadcast;
+
+            var dispatch1 = manager.dispatch('app');
+
+            var dispatch2 = manager.dispatch('some-other-channel');
+
+            const someEvent2 = dispatch1.on('some:event', function(arg1, arg2) {
+                console.log('dispatch1 - some:event 2', arg1, arg2);
+            });
+
+            dispatch1.on('some:event', function(arg1, arg2) {
+                console.log('dispatch1 - some:event 1', arg1, arg2);
+            });
+
+            dispatch1.once('another:event', function(arg1, arg2) {
+                console.log('dispatch1 - another:event', arg1, arg2);
+            });
+
+            dispatch2.on('some:event', function(arg1, arg2) {
+                console.log('dispatch2 - some:event', arg1, arg2);
+            });
+
+            dispatch1.emit('some:event', 'a', 'b');
+
+            dispatch1.emit('another:event', 'a', 'b');
+
+            dispatch1.emit('another:event', 'a', 'b');
+
+            dispatch2.emit('some:event', 'a', 'b');
+
+            dispatch2.off('some:event');
+
+            dispatch2.emit('some:event', 'a', 'b');
+
+        </script>
+    </body>
+</html>

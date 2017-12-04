@@ -1,4 +1,3 @@
-import fs from 'fs';
 import json from 'rollup-plugin-json';
 import babel from 'rollup-plugin-babel';
 import serve from 'rollup-plugin-serve';
@@ -8,19 +7,11 @@ import livereload from 'rollup-plugin-livereload';
 import rootImport from 'rollup-plugin-root-import';
 
 export default {
-    input: 'src/main.js',
+    input: 'src/Broadcast.js',
     output: {
         file: 'dist/broadcast.js',
         format: 'umd',
         name: 'Broadcast'
-    },
-    external: [
-        //'vue',
-        //'axios'
-    ],
-    globals: {
-        //'vue': 'Vue',
-        //'axios': 'axios'
     },
     sourcemap: true,
     sourcemapFile: './dist/.js.map',
@@ -31,7 +22,6 @@ export default {
         rootImport({
             // Will first look in `client/src/*` and then `common/src/*`.
             root: `${__dirname}/src`,
-
             // If we don't find the file verbatim, try adding these extensions
             extensions: ['.js']
         }),
