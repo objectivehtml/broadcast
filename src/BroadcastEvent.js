@@ -1,4 +1,4 @@
-import isFunction from '/Helpers/isFunction';
+import isFunction from './Helpers/isFunction.js';
 
 export default class BroadcastEvent {
 

@@ -1,14 +1,18 @@
-import 'es6-promise/auto';
-import is from './Helpers/Is';
-import BroadcastDispatch from './BroadcastDispatch';
+//import 'es6-promise/auto';
+import is from './Helpers/Is.js';
+import BroadcastDispatch from './BroadcastDispatch.js';
 
 export default class BroadcastManager {
 
-    constructor() {
+    constructor(channel) {
         this._dispatchers = {};
+        this.defaultChannel = 'app';
+        this.dispatch(channel || this.defaultChannel);
     }
 
     dispatch(channel) {
+        channel || (channel = this.defaultChannel);
+
         if(this.doesDispatchExist(channel)) {
             return this._dispatchers[channel];
         }

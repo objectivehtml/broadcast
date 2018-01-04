@@ -1,7 +1,8 @@
 {
-  "name": "Broadcaster",
-  "version": "0.1.0",
-  "main": "src/Broadcast.js",
+  "name": "broadcast",
+  "version": "0.1.7",
+  "main": "dist/broadcast.js",
+  "module": "src/Broadcast.js",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-es2015-rollup": "^3.0.0",

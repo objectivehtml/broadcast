@@ -1,7 +1,6 @@
-import is from '/Helpers/Is.js';
-
-import BroadcastEvent from './BroadcastEvent';
-import BroadcastReply from './BroadcastReply';
+import is from './Helpers/Is.js';
+import BroadcastEvent from './BroadcastEvent.js';
+import BroadcastReply from './BroadcastReply.js';
 
 export default class Dispatcher {
 

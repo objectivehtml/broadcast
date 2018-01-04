@@ -1,3 +1,3 @@
-import BroadcastManager from './BroadcastManager';
+import Broadcast from './BroadcastManager';
 
-export default BroadcastManager;
+export default Broadcast;
