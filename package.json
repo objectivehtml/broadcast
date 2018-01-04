@@ -1,6 +1,6 @@
 {
   "name": "@objectivehtml/broadcast",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/broadcast.js",
   "module": "src/Broadcast.js",
   "devDependencies": {
@@ -18,10 +18,10 @@
     "es6-promise": "^4.1.1"
   },
   "scripts": {
-      "build": "rollup -c --watch;",
-      "release": "rollup -c; npm publish;",
-      "release-patch": "npm version patch; npm run release;",
-      "release-minor": "npm version minor; npm run release;",
-      "release-major": "npm version major; npm run release;"
+    "build": "rollup -c --watch;",
+    "release": "rollup -c; npm publish;",
+    "release-patch": "npm version patch; npm run release;",
+    "release-minor": "npm version minor; npm run release;",
+    "release-major": "npm version major; npm run release;"
   }
 }
