@@ -117,9 +117,19 @@ var Dispatcher = function () {
             return !is(key, BroadcastEvent) ? new BroadcastEvent(key, callback) : key;
         }
     }, {
-        key: 'createReply',
-        value: function createReply(key, callback) {
-            return !is(key, BroadcastReply) ? new BroadcastReply(key, callback) : key;
+        key: 'hasEvent',
+        value: function hasEvent(key) {
+            return !!this.getEvent(key);
+        }
+    }, {
+        key: 'getEvent',
+        value: function getEvent(key) {
+            return this._events[key] || null;
+        }
+    }, {
+        key: 'getEvents',
+        value: function getEvents() {
+            return this._events;
         }
     }, {
         key: 'on',
@@ -167,6 +177,26 @@ var Dispatcher = function () {
                     }
                 }
             }
+        }
+    }, {
+        key: 'createReply',
+        value: function createReply(key, callback) {
+            return !is(key, BroadcastReply) ? new BroadcastReply(key, callback) : key;
+        }
+    }, {
+        key: 'hasReply',
+        value: function hasReply(key) {
+            return !!this.getReply(key);
+        }
+    }, {
+        key: 'getReply',
+        value: function getReply(key) {
+            return this._replies[key] || null;
+        }
+    }, {
+        key: 'getReplies',
+        value: function getReplies() {
+            return this._replies;
         }
     }, {
         key: 'request',

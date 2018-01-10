@@ -21,7 +21,7 @@ const plugins = [
 ];
 
 if(process.env.ROLLUP_WATCH == 'true') {
-    plugins.push([    
+    plugins.push([
         serve(),
         livereload({
             watch: './dist/broadcast.js'

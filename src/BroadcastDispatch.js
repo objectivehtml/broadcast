@@ -14,8 +14,16 @@ export default class Dispatcher {
         return !is(key, BroadcastEvent) ? new BroadcastEvent(key, callback) : key;
     }
 
-    createReply(key, callback) {
-        return !is(key, BroadcastReply) ? new BroadcastReply(key, callback) : key;
+    hasEvent(key) {
+        return !!this.getEvent(key);
+    }
+
+    getEvent(key) {
+        return this._events[key] || null;
+    }
+
+    getEvents() {
+        return this._events;
     }
 
     on(key, callback) {
@@ -59,6 +67,22 @@ export default class Dispatcher {
                 }
             }
         }
+    }
+
+    createReply(key, callback) {
+        return !is(key, BroadcastReply) ? new BroadcastReply(key, callback) : key;
+    }
+
+    hasReply(key) {
+        return !!this.getReply(key);
+    }
+
+    getReply(key) {
+        return this._replies[key] || null;
+    }
+
+    getReplies() {
+        return this._replies;
     }
 
     request(reply, context) {
