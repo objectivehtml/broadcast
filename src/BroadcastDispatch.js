@@ -22,6 +22,19 @@ export default class Dispatcher {
         return this._events[key] || null;
     }
 
+    setEvent(key, value) {
+        if(key instanceof BroadcastEvent) {
+            value = key;
+            key = value.key;
+        }
+
+        if(!value instanceof BroadcastEvent) {
+            throw new Error('The value argument must be an instance of BroadcastEvent');
+        }
+
+        return this._events[key] = value;
+    }
+
     getEvents() {
         return this._events;
     }
@@ -79,6 +92,19 @@ export default class Dispatcher {
 
     getReply(key) {
         return this._replies[key] || null;
+    }
+
+    setReply(key, value) {
+        if(key instanceof BroadcastReply) {
+            value = key;
+            key = value.key;
+        }
+
+        if(!value instanceof BroadcastReply) {
+            throw new Error('The value argument must be an instance of BroadcastReply');
+        }
+
+        return this._replies[key] = value;
     }
 
     getReplies() {

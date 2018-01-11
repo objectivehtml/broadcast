@@ -1,6 +1,6 @@
 {
   "name": "@objectivehtml/broadcast",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "main": "dist/broadcast.js",
   "module": "src/Broadcast.js",
   "devDependencies": {

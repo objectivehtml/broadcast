@@ -127,6 +127,20 @@ var Dispatcher = function () {
             return this._events[key] || null;
         }
     }, {
+        key: 'setEvent',
+        value: function setEvent(key, value) {
+            if (key instanceof BroadcastEvent) {
+                value = key;
+                key = value.key;
+            }
+
+            if (!value instanceof BroadcastEvent) {
+                throw new Error('The value argument must be an instance of BroadcastEvent');
+            }
+
+            return this._events[key] = value;
+        }
+    }, {
         key: 'getEvents',
         value: function getEvents() {
             return this._events;
@@ -192,6 +206,20 @@ var Dispatcher = function () {
         key: 'getReply',
         value: function getReply(key) {
             return this._replies[key] || null;
+        }
+    }, {
+        key: 'setReply',
+        value: function setReply(key, value) {
+            if (key instanceof BroadcastReply) {
+                value = key;
+                key = value.key;
+            }
+
+            if (!value instanceof BroadcastReply) {
+                throw new Error('The value argument must be an instance of BroadcastReply');
+            }
+
+            return this._replies[key] = value;
         }
     }, {
         key: 'getReplies',
